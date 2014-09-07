@@ -73,5 +73,15 @@ package's concepts, however actual code was not used.
 
 ### Contributors
 
+none yet...
+
 ### Maintainers
+
+Troy Engel <troyengel@gmail.com>
+* Arch AUR package
+
+## Support
+
+If like this software, please consider upgrading to a Premium account to
+help support the [Free DNS](http://freedns.afraid.org) project.
 
