@@ -1,8 +1,8 @@
 # Maintainer: Troy Engel <troyengel+arch@gmail.com>
 
 pkgname=petrified
-pkgver=1.0
-pkgrel=2
+pkgver=1.0.1
+pkgrel=1
 pkgdesc="Bash client to update dynamic DNS at freedns.afraid.org"
 arch=('any')
 url="https://github.com/troyengel/petrified"
@@ -18,7 +18,7 @@ source=('petrified'
         'petrified.logrotate'
         'README.md'
         'LICENSE')
-md5sums=('019946e82cb8be1b1073fa8f4016bf02'
+md5sums=('1bd8884a60ef9d56e1d8bab5febd9618'
          'f011bccfc9ef01a7e27a8d79f8e8d0bd'
          '96748831c58c8b64e786a9f7386db22e'
          '01d6dd718325644c3bfbc89030d66a21'
