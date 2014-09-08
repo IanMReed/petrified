@@ -19,7 +19,7 @@ source=('petrified'
         'README.md'
         'LICENSE')
 md5sums=('1bd8884a60ef9d56e1d8bab5febd9618'
-         'f011bccfc9ef01a7e27a8d79f8e8d0bd'
+         '3afaa609eaf5089d968167d5298aed31'
          '96748831c58c8b64e786a9f7386db22e'
          '01d6dd718325644c3bfbc89030d66a21'
          '66aff4c7c44404f32315abdab0a479bc'
