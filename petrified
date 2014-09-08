@@ -195,7 +195,7 @@ fi
 # Check our saved IP against the new IP
 OLDIP="0"
 if (( ${USE_LIP} == 1 )); then
-  OLD_IP=$(cat "${PET_LIP}" 2>/dev/null)
+  OLDIP=$(cat "${PET_LIP}" 2>/dev/null)
 fi
 
 # If they don't match, tell upstream
@@ -203,6 +203,8 @@ if [[ "${OLDIP}" != "${NEWIP}" ]]; then
   UPDURL="${DDNS_URL}?${DDNS_KEY}&address=${NEWIP}"
   RESULT=$(curl -m ${CURL_WAIT} -sk "${UPDURL}" 2>/dev/null)
   logmsg "${RESULT}"
+else
+  logmsg "IP ${NEWIP} hasn't changed, not updating."
 fi
 
 # Save the new IP if configured
