@@ -2,7 +2,7 @@
 
 pkgname=petrified
 pkgver=1.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Bash client to update dynamic DNS at freedns.afraid.org"
 arch=('any')
 url="https://github.com/troyengel/petrified"
@@ -27,14 +27,13 @@ md5sums=('019946e82cb8be1b1073fa8f4016bf02'
          'd32239bcb673463ab874e80d47fae504')
 
 package() {
-  install -dm0755 "${pkgdir}/usr/bin"
-  install -m0755 petrified "${pkgdir}/usr/bin/"
-  install -dm0755 "${pkgdir}/etc"
-  install -m0640 petrified.conf "${pkgdir}/etc/" 
+  install -Dm0755 petrified "${pkgdir}/usr/bin/petrified"
+  install -Dm0640 petrified.conf "${pkgdir}/etc/petrified.conf" 
+  install -Dm0644 petrified.logrotate "${pkgdir}/etc/logrotate.d/petrified" 
   install -dm0755 "${pkgdir}/var/cache/petrified"
 
   install -dm0755 "${pkgdir}/usr/share/doc/${pkgname}"
-  install -m0644 petrified.crontab petrified.dispatch petrified.logrotate \
+  install -m0644 petrified.conf petrified.crontab petrified.dispatch \
                  README.md "${pkgdir}/usr/share/doc/${pkgname}"
 }
 
