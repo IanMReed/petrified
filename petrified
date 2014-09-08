@@ -91,7 +91,7 @@ PET_LIP=/var/cache/petrified/lastip.dat
 ####
 
 # Read in our configs
-if [[ -z "{CONF_NAMED}" ]]; then
+if [[ -z "${CONF_NAMED}" ]]; then
   [[ -r "${CONF_GLOBAL}" ]] && source "${CONF_GLOBAL}"
   [[ -r "${CONF_LOCAL}" ]] && source "${CONF_LOCAL}"
 else
