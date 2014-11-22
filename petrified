@@ -17,7 +17,7 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
-## Version: 1.0.1
+## Version: 1.0.2
 
 ## One of these must exist - '-c <config>' ignores global/local entirely
 CONF_GLOBAL=/etc/petrified.conf
@@ -82,6 +82,7 @@ PET_LIP=/var/cache/petrified/lastip.dat
 # printf (coreutils)
 # touch  (coreutils)
 # date   (coreutils)
+# stat   (coreutils)
 # cat    (coreutils)
 # rm     (coreutils)
 # bash   (bash)
@@ -135,6 +136,19 @@ logmsg () {
   fi
   return
 }
+
+# Security warning
+statchk () {
+  _CFILE=$1
+  if [[ -f "${_CFILE}" ]] && [[ -r "${_CFILE}" ]]; then
+    if [[ $(stat -c "%a" "${_CFILE}") != 600 ]]; then
+      logmsg "Security warning: ${_CFILE} is readable but not mode 0600"
+    fi
+  fi
+}
+[[ -n "${CONF_GLOBAL}" ]] && statchk "${CONF_GLOBAL}"
+[[ -n "${CONF_LOCAL}" ]] && statchk "${CONF_LOCAL}"
+[[ -n "${CONF_NAMED}" ]] && statchk "${CONF_NAMED}"
 
 # Make sure that PET_PID will work if required
 if (( ${USE_PID} == 1 )); then

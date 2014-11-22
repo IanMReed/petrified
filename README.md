@@ -27,17 +27,17 @@ High level items of interest:
 * Logging via journald, syslog, stdout and a logfile simultaneously
 * Local IP reporting for use with internal DNS entries
 * Caching of the last IP to reduce upstream impact
-* Usable via cron, NetworkManager dispatcher, commandline, etc.
+* Usable via cron, NetworkManager dispatcher, commandline, systemd, etc.
 
 ## Dependencies
 
-| Utilities                    | Package    |
-| -----------------------------|------------|
-| logger, kill                 | util-linux |
-| printf, touch, date, cat, rm | coreutils  |
-| bash                         | bash       |
-| ip                           | iproute2   |
-| curl                         | curl       |
+| Utilities                          | Package    |
+| -----------------------------------|------------|
+| logger, kill                       | util-linux |
+| printf, touch, date, stat, cat, rm | coreutils  |
+| bash                               | bash       |
+| ip                                 | iproute2   |
+| curl                               | curl       |
 
 
 ## Configuration
