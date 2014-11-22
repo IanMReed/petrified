@@ -1,0 +1,11 @@
+[Unit]
+Description=Run petrified as %i
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/petrified
+User=%i
+
+[Install]
+WantedBy=petrified.target
