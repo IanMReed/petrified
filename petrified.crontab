@@ -10,6 +10,10 @@
 #!/bin/bash
 /usr/bin/petrified
 
-## run user level every 30 minutes
-## (f)crontab -e (-u <username>)
+## run user level every 30 minutes using traditional cron
+## crontab -e (-u <username>)
 */30 * * * * /usr/bin/petrified
+
+## run user level every 30 minutes using fcron
+## fcrontab -e (-u <username>)
+%hourly,mail(no) 0 /usr/bin/petrified
