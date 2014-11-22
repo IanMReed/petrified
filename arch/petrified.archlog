@@ -1,4 +1,12 @@
 2014-11-22 Troy Engel <troyengel+arch@gmail.com>
+	* 1.0.2-3 :
+	Fix PKGBUILD optdepends
+
+2014-11-22 Troy Engel <troyengel+arch@gmail.com>
+	* 1.0.2-2 :
+	Fix PKGBUILD weirdness
+
+2014-11-22 Troy Engel <troyengel+arch@gmail.com>
 	* 1.0.2-1 :
 	Version 1.0.2
 	Add petrified-systemd subpackage
