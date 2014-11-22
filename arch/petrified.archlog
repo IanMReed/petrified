@@ -3,6 +3,8 @@
 	Version 1.0.2
 	Add petrified-systemd subpackage
 	Add packaging changelog
+	Move examples to extra/ in doc dir
+	Logrotate config is no longer installed system-wide
 
 2014-11-22 Troy Engel <troyengel+arch@gmail.com>
 	* 1.0.1-2 :
