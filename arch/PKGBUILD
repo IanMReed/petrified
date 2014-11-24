@@ -10,7 +10,7 @@ url="https://github.com/troyengel/petrified"
 license=('GPL3')
 options=('emptydirs')
 source=("https://github.com/troyengel/petrified/archive/v${pkgver}.tar.gz")
-md5sums=('8e515895a38f69e341f3098fd2191b25')
+md5sums=('e663dae5f6947ff4771dff783d8f1ee0')
 
 package_petrified() {
   pkgdesc="Bash client to update dynamic DNS at freedns.afraid.org"
