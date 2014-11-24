@@ -1,0 +1,91 @@
+=head1 NAME
+
+petrified - bash client to update dynamic DNS at freedns.afraid.org
+
+=head1 SYNOPSIS
+
+Usage: B<petrified> [ B<-c> I<config> ]
+
+=head1 DESCRIPTION
+
+B<petrified> is a bash client to update dynamic DNS hosted at
+L<https://freedns.afraid.org>; the software goals are for simplicity,
+flexibility and configurability while using the minimal system tools
+installed with most distributions.
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<-c> I<config>
+
+Specify an exact config file to use, ignoring global and per-user configs.
+
+=back
+
+=head1 CONFIGURATION
+
+See F<petrified.conf> for all available options and their usage.
+
+Copy the default configuration file to F</etc/petrified.conf> for global
+use, F<~/.petrifiedrc> for user-level use, or another location as desired.
+At a minimum the C<DDNS_KEY> variable must be configured for basic usage;
+all other variables are preconfigured for system level (root) usage.
+
+If implementing at the user level, be sure and set the various file options
+to locations that are writable by the user; the default config is fully
+documented and should make sense.
+
+To use a custom configuration file, the C<-c config> parameter is supported;
+note that using this option will not read the global or local configuration
+files and only use the variables from this custom file.
+
+=head1 DEPENDENCIES
+
+ Utilities                          | Package
+ -----------------------------------|------------
+ logger, kill                       | util-linux
+ printf, touch, date, stat, cat, rm | coreutils
+ bash                               | bash
+ ip                                 | iproute2
+ curl                               | curl
+
+=head1 FILES
+
+=over 4
+
+=item F</etc/petrified.conf>
+
+Global configuration file
+
+=item F<~/.petrifiedrc>
+
+Per-user configuration file
+
+=item F</var/cache/petrified/lastip.dat>
+
+IP cache (if feature enabled - default: yes)
+
+=item F</run/petrified.pid>
+
+PID file (if feature enabled - default: no)
+
+=item F</var/log/petrified.log>
+
+LOG file (if feature enabled - default: no)
+
+=back
+
+=head1 AUTHOR
+
+Copyright (c) 2014 Troy Engel
+
+GPLv3 - see LICENSE for details
+
+L<https://github.com/troyengel/petrified>
+
+=head2 SUPPORT
+
+If you like this software, please consider upgrading to a Premium account
+to help support the L<Free DNS/http://freedns.afraid.org> project.
+
