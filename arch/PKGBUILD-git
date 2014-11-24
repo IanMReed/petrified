@@ -1,0 +1,54 @@
+# Maintainer: Troy Engel <troyengel+arch@gmail.com>
+
+pkgbase=petrified
+pkgname=('petrified-git' 'petrified-git-systemd')
+pkgver=20141124.161601
+pkgrel=1
+changelog=petrified.archlog
+arch=('any')
+url="https://github.com/troyengel/petrified"
+license=('GPL3')
+options=('emptydirs')
+source=("https://github.com/troyengel/petrified/archive/master.tar.gz")
+md5sums=('SKIP')
+
+pkgver() {
+  echo $(date +%Y%m%d.%H%M%S)
+}
+
+package_petrified-git() {
+  pkgdesc="Bash client to update dynamic DNS at freedns.afraid.org"
+  depends=('util-linux' 'coreutils' 'bash' 'iproute2' 'curl')
+  backup=('etc/petrified.conf')
+  provides=('petrified')
+  conflicts=('petrified')
+  install=petrified.archinst
+
+  cd "${srcdir}/${pkgbase}-master"
+
+  # Install the system bits
+  install -Dm0755 petrified "${pkgdir}/usr/bin/petrified"
+  install -Dm0644 petrified.1 "${pkgdir}/usr/share/man/man1/petrified.1"
+  install -Dm0600 petrified.conf "${pkgdir}/etc/petrified.conf" 
+  install -dm0755 "${pkgdir}/var/cache/petrified"
+
+  # Install examples for the user
+  install -dm0755 "${pkgdir}/usr/share/doc/${pkgname}/extra"
+  install -m0644 README.pod "${pkgdir}/usr/share/doc/${pkgname}"
+  install -m0644 extra/* "${pkgdir}/usr/share/doc/${pkgname}/extra"
+}
+
+package_petrified-git-systemd() {
+  pkgdesc="Unit files for petrified systemd usage"
+  depends=('petrified' 'systemd')
+  provides=('petrified-systemd')
+  conflicts=('petrified-systemd')
+
+  cd "${srcdir}/${pkgbase}-master"
+
+  # Systemd files
+  install -dm0755 "${pkgdir}/usr/lib/systemd/system"
+  install -m0644 systemd/petrified.target systemd/petrified.timer \
+                 systemd/petrified@.service \
+                 "${pkgdir}/usr/lib/systemd/system"
+}
