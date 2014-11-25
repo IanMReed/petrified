@@ -127,11 +127,11 @@ logmsg () {
     echo "${LMSG}" | logger -t petrified
   fi
   if (( ${USE_STDOUT} == 1 )); then
-    DTS=$(date +"%Y-%M-%d %H:%M:%S")
+    DTS=$(date +"%Y-%m-%d %H:%M:%S")
     echo "[${DTS}] [petrified] ${LMSG}"
   fi
   if (( ${USE_LOGFILE} == 1 )); then
-    DTS=$(date +"%Y-%M-%d %H:%M:%S")
+    DTS=$(date +"%Y-%m-%d %H:%M:%S")
     echo "[${DTS}] [petrified] ${LMSG}" >> "${PET_LOG}"
   fi
   return
